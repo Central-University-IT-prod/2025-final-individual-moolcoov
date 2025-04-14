@@ -1,0 +1,129 @@
+@import "tailwindcss";
+@import "./_fonts.css";
+
+@plugin "tailwindcss-animate";
+
+:root {
+  --background-100: hsl(0, 0%, 0%);
+  --background-200: hsl(0, 0%, 7%);
+
+  --border: hsl(0 0% 20%);
+  --accent: hsl(0 0% 100%);
+
+  --muted: hsl(0 0% 15%);
+  --muted-foreground: hsl(0 0% 63%);
+
+  --navbar: hsl(0 0% 13% / 55%);
+  --navbar-active: hsl(0 0% 100%);
+  --navbar-inactive: hsl(0 0% 49%);
+
+  --session-dark: hsl(0 0% 13 / 50%);
+  --session-light: hsl(0 0% 80% / 35%);
+
+  --xp: hsl(198 86% 65%);
+  --lottie: hsl(0 0% 85%);
+}
+
+@theme inline {
+  --font-sans:
+    "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-medium-sans:
+    "Medium", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  --color-background-100: var(--background-100);
+  --color-background-200: var(--background-200);
+
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-navbar: var(--navbar);
+  --color-navbar-active: var(--navbar-active);
+  --color-navbar-inactive: var(--navbar-inactive);
+
+  --color-session-dark: var(--session-dark);
+  --color-session-light: var(--session-light);
+
+  --bottom-button: calc(env(safe-area-inset-bottom) + 30px);
+
+  --bottom-navbar: calc(env(safe-area-inset-bottom) + 30px);
+  --bottom-navbar-addition: calc(var(--bottom-navbar) + 36px);
+
+  --color-xp: var(--xp);
+  --color-lottie: var(--lottie);
+
+  --carousel-item-size: 0 0 90%;
+}
+
+html,
+body {
+  @apply bg-background-100;
+
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button,
+  [role="button"] {
+    @apply cursor-pointer;
+  }
+
+  textarea {
+    resize: none;
+  }
+}
+
+.spin-hide {
+  appearance: textfield;
+}
+
+.spin-hide::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+.spin-hide::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+input:not(
+    [type="image" i],
+    [type="range" i],
+    [type="checkbox" i],
+    [type="radio" i]
+  ) {
+  overflow-clip-margin: 0px !important;
+  overflow: clip !important;
+}
+
+::-webkit-scrollbar {
+  position: absolute;
+  z-index: 9999;
+  width: 11px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+@media (hover: hover) {
+  :hover::-webkit-scrollbar-thumb {
+    border: 3px solid transparent;
+    background-color: var(--border);
+    background-clip: content-box;
+  }
+}
